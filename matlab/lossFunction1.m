@@ -30,9 +30,9 @@ function loss = lossFunction1(theta , X , R , figID , pringtFlag)
     pose_dis = abs( rad2deg(cur_angle - target_angle) );
 
     % * 加权合并损失
-    w1 = 0.2;
-    w2 = 0.4;
-    w3 = 0.4;
+    w1 = 0.5;
+    w2 = 1.0;
+    w3 = 1.0;
     loss = w1 * loss_dis + w2 * angle_dis + w3 * pose_dis;
     if pringtFlag
         % 打印夹持点坐标与对应的loss_dis
