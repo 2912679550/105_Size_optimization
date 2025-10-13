@@ -44,6 +44,7 @@ function loss = lossFunction1(theta , X , R , figID , pringtFlag)
         % 打印夹持姿态与目标夹持姿态的夹角与对应的pose_dis
         fprintf('Current angle: %.2f degrees, Target angle: %.2f degrees, pose_dis: %.2f\n', ...
             rad2deg(cur_angle), rad2deg(target_angle), pose_dis);
+        fprintf('Total loss: %.3f', loss);
     end
     return;
 end
