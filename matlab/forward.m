@@ -56,6 +56,17 @@ function points = forward(X , theta_  , R_ , figID)
         plot( [D(1) , Q(1)] , [D(2) , Q(2)]  , 'LineWidth' , 2); % DQ
         plot( [Q(1) , N(1)] , [Q(2) , N(2)]  , 'LineWidth' , 2); % QN
         plot( [N(1) , M(1)] , [N(2) , M(2)]  , 'LineWidth' , 2); % MN
+        % 绘制关于y轴对称的上述线段
+        plot( [P(1) , -A(1)] , [P(2) , A(2)]  , 'LineWidth' , 2); % PA
+        plot( [-A(1) , -B(1)] , [A(2) , B(2)]  , 'LineWidth' , 2); % AB
+        plot( [-B(1) , -C(1)] , [B(2) , C(2)]  , 'LineWidth' , 2); % BC
+        plot( [-C(1) , -D(1)] , [C(2) , D(2)]  , 'LineWidth' , 2); % CD
+        plot( [-B(1) , -E(1)] , [B(2) , E(2)]  , 'LineWidth' , 2); % BE
+        plot( [-D(1) , -E(1)] , [D(2) , E(2)]  , 'LineWidth' , 2); % DE
+        plot( [-D(1) , -Q(1)] , [D(2) , Q(2)]  , 'LineWidth' , 2); % DQ
+        plot( [-Q(1) , -N(1)] , [Q(2) , N(2)]  , 'LineWidth' , 2); % QN
+        plot( [-N(1) , -M(1)] , [N(2) , M(2)]  , 'LineWidth' , 2); % MN
+        
         % print N 
         % disp(N);
         % plot points : P , A , B , C , D , E , Q , N , M

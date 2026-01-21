@@ -1,6 +1,7 @@
-%% 计算线段与圆的交点
+%% 计算直线与圆的交点
 function intersections = lineCircleIntersection(P0, P1, center, radius)
-    % 输入：P0, P1 为线段端点 [x,y]；center 为圆心 [x,y]；radius 为半径
+    % 输入：P0, P1 为直线上的两个点 [x,y]；center 为圆心 [x,y]；radius 为半径
+    % 输出：intersections 为交点坐标矩阵，每行一个交点 [x,y]，无交点时为空矩阵
     dx = P1(1) - P0(1);
     dy = P1(2) - P0(2);
     A = dx^2 + dy^2;
@@ -12,18 +13,15 @@ function intersections = lineCircleIntersection(P0, P1, center, radius)
     
     if discriminant >= 0
         t1 = (-B + sqrt(discriminant)) / (2 * A);
-        t2 = (-B - sqrt(discriminant)) / (2 * A);
+        x1 = P0(1) + t1 * dx;
+        y1 = P0(2) + t1 * dy;
+        intersections = [intersections; x1, y1];
         
-        % 检查参数t是否在[0,1]范围内
-        if t1 >= 0 && t1 <= 1
-            x = P0(1) + t1 * dx;
-            y = P0(2) + t1 * dy;
-            intersections = [intersections; x, y];
-        end
-        if discriminant > 0 && t2 >= 0 && t2 <= 1  % 避免重复添加相切点
-            x = P0(1) + t2 * dx;
-            y = P0(2) + t2 * dy;
-            intersections = [intersections; x, y];
+        if discriminant > 0  % 两个交点
+            t2 = (-B - sqrt(discriminant)) / (2 * A);
+            x2 = P0(1) + t2 * dx;
+            y2 = P0(2) + t2 * dy;
+            intersections = [intersections; x2, y2];
         end
     end
 end
